@@ -1,4 +1,4 @@
-import { useContext} from "react";
+/*import { useContext} from "react";
 import { registrar } from "../api/rutas.js"
 import { Context } from "./contexto.js";
 
@@ -10,9 +10,9 @@ export const Confirmacion=()=>{
     return contexto
 }
 
-export const datoRegistrarse=async(registro)=>{
+export const datoRegistrarse=async(values)=>{
     try{
-        const respuest= await registrar(registro)
+        const respuest= await registrar(values)
         console.log(respuest)
     }
     catch(error){
@@ -25,3 +25,5 @@ export const Tcontext=({children})=>{
         {children}
     </Context.Provider>
 }
+
+*/

@@ -1,7 +1,7 @@
-import {database} from '../db.js'
+//import {database} from '../db.js'
 
 
-export const postSignup = async (req,res)=>{
+/*export const postSignup = async (req,res)=>{
    try{
     const {nombre, apellido, tipo_documento, documento, email, contraseña,ciudad, direccion, ocupacion} = req.body
     const [result] = await database.query('INSERT INTO mujeres(idDoc, tipo_documento, nom_mujer, apell_mujer, tel_mujer, email_mujer, passw_mujer, ciu_mujer, dir_mujer, ocu_mujer) VALUES (?,?,?,?,?,?,?,?,?,?)'),[documento, tipo_documento, nombre, apellido,  email, contraseña, ciudad, direccion, ocupacion]
@@ -10,7 +10,7 @@ export const postSignup = async (req,res)=>{
    catch(error){
     return res.status(500).json({mensaje:error.mensaje})
    }
-}
+}*/
 
 /*export const getTarea= async (req,res)=>{
 try{
