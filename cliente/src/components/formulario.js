@@ -1,20 +1,45 @@
-import { Form,Formik } from "formik";
-import { useTare } from "../Context/TareasContext";
-function Formu(){
+import { Form, Formik } from "formik"; //Llamamos la API Formik, para hacer un formulario sin props y hacerlo más dinámico con el código.
+import { useTare } from "../contexto/TareasContext"; //
+
+function Formu(){ //Le damos nombre a la variable
 const {createTarea}=useTare() //La variable createTarea es defina y asignada del valor 
     return(
     <div>
-       <Formik
+       <Formik //Aquí ya se ponen los estados iniciales, aquí se ponen 
             initialValues={{
-            Nombre:"",
-            Identificacion:"",
-            Rol:""
-       }}
-       onSubmit={async (values,actions)=>{
-        console.log(values)
-        createTarea(values)
-        actions.resetForm()
-       }}
+            nombre:"",
+            apellido:"",
+            tipo_documento:"",
+            documento:"",
+            email:"",
+            contraseña:"",
+            ciudad:"",
+            direccion:"",
+            ocupacion:""}}
+            validate={(values) => {
+                const errors = {};
+                if (!values.fullname) {
+                  errors.fullname = "Required";
+                }
+     
+                if (!values.email) {
+                  errors.email = "Required";
+                } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                ) {
+                  errors.email = "Invalid email address";
+                }
+                if (!values.password) {
+                  errors.password = "Required";
+                }
+                return errors;
+              }}
+            >
+            onSubmit={async (values,actions)=>{
+                console.log(values)
+                createTarea(values)
+                actions.resetForm()
+            }}
        >
        {({handleChange,handleSubmit,values,isSubmitting})=>(
          <Form onSubmit={handleSubmit}>
