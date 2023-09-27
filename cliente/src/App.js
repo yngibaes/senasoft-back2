@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom"; //Importamos las rutero
-import Formulario from "./pages/formulario.js"; //Importamos la page de Formulario para rutarla
-import { Context } from "./contexto/contexto.js"; //Importamos el contexto para darselo a toda la App
+import Formulario from "./pages/page_formulario.js"; //Importamos la page de Formulario para rutarla
+import { Tcontext } from "./contexto/tareascontexto.js"; //Importamos el contexto para darselo a toda la App
+import Formu from "./components/formulario.js";
 
 function App() {
   return (
-    <Context>
+    <Tcontext>
         <Routes>
-          <Route path="/" element={Formulario}/>
+          <Route path="/formulario" Component={Formulario}/>
+          <Route path="/prueba" Component={Formu}/>
         </Routes>
-    </Context>
+    </Tcontext>
   );
 }
 export default App
